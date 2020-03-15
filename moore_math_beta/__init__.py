@@ -9,5 +9,6 @@ def add(a=0.0, b=0.0):
     return a + b
 
 def multiply(a, b):
-   """TODO: Very complicated multiply things!"""
-   return 0
+   """DONE with some extra comments"""
+   print("hi ")
+   return a * b
