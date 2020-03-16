@@ -11,7 +11,7 @@ then
   git config --global user.name "TravisMooreBot"
   git checkout $TRAVIS_BRANCH
   ## push the files to master
-  if ( $num_errors_after < $num_errors_before )
+  if (( $num_errors_after < $num_errors_before ));
   then
     git commit -a -m "pep-8 fix"
     git config --global  simple # push only to the current branch.  
