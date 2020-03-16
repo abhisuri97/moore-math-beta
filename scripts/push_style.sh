@@ -12,6 +12,6 @@ then
   git checkout $TRAVIS_BRANCH
   ## push the files to master
   git commit -a -m "pep-8 fix"
-  git config --global  simple # push only to the current branch.  
+  git config --global push.default simple # push only to the current branch.  
   git push -f -q https://$GITHUB_API_KEY@github.com/abhisuri97/moore-math-beta.git master > /dev/null
 fi
