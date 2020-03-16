@@ -26,7 +26,7 @@ script:
   - |
       if (( $num_errors_after < $num_errors_before )); then
           git commit -a -m "PEP-8 Fix"
-          git config --global push.default simple # Push only to the current branch.  
+          git config --global  simple # Push only to the current branch.  
           # Make sure to make the output quiet, or else the API token will 
           # leak!  This works because the API key can replace your password.
           git push -f -q https://$GITHUB_API_KEY@github.com/abhisuri97/moore-math-beta.git master > /dev/null
