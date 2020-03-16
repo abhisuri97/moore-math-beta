@@ -1,37 +1,21 @@
 language: python
 python:
-  - 3.5
-
+- 3.5
 before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install python-pip
-  - sudo pip install --upgrade pip
-  - pip install --upgrade pip
-  - pip install pycodestyle
-  - pip install autopep8
-
-script:
-  - num_errors_before=`find . -name \*.py -exec pycodestyle --ignore=E402 {} + | wc -l`
-  - echo $num_errors_before
-
-  - cd "$TRAVIS_BUILD_DIR"
-  - git config --global user.email "suriabhinav1997@gmail.com"
-  - git config --global user.name "Travis"
-  - git checkout $TRAVIS_BRANCH
-
-  - find . -name \*.py -exec autopep8 --recursive --aggressive --aggressive --in-place {} +
-  - num_errors_after=`find . -name \*.py -exec pycodestyle --ignore=E402 {} + | wc -l`
-  - echo $num_errors_after
-
-  - |
-      if (( $num_errors_after < $num_errors_before )); then
-          git commit -a -m "PEP-8 Fix"
-          git config --global  simple # Push only to the current branch.  
-          # Make sure to make the output quiet, or else the API token will 
-          # leak!  This works because the API key can replace your password.
-          git push -f -q https://$GITHUB_API_KEY@github.com/abhisuri97/moore-math-beta.git master > /dev/null
-      fi
-  - cd "$TRAVIS_BUILD_DIR"
-
-  # List the remaining errors - these will have to be fixed manually
-  - find . -name \*.py -exec pycodestyle --ignore=E402 {} +
+- sudo apt-get update
+- sudo apt-get -y install python-pip
+- sudo pip install --upgrade pip
+- pip install --upgrade pip
+- pip install pycodestyle
+- pip install autopep8
+deploy:
+  - provider: script
+  - script: bash scripts/style.sh
+  - on:
+      branch: master
+  - provider: pypi
+  - user: __token__
+  - password:
+      secure: kiIUBUazvNXi1b2Xp/oYwx6Cc3Tq5bAZdYi7Up1IWmJTWeQq3o74APDVnN9fi5WNdDiWQlHOIArXZzzL386aashyDBB1m23sn87EEqboY01jpMp6NZ4fvvi8x5ekai0Vq0aJpckRPS1RUNNmBEJUlqGZVhqE7sMcmlqA0RevooBxYnBdhFME4FrSeSLTEShvPxnvWKAahoifpmpXYO2HahA07vjZBqn5x9M8XgcP76SEy2aK4+ispfOpElTtVBtutY+8rFA1F33dlv+zT1L8HNPjVso8Jk9Yhapkn8+0ENkIO2Ep5LXV+VgSq3y2Z5cS+M6OLanfJVUovxLxOpxV1hS5L6RvWZA3HfpHxVj5hh3BWe771wI01I/720nEM6tPBiN54Y2pJYthxbYKjjV2bbnjVQPavxEs1ACnjph1+JwXZhnEel6OVbybFk9/iDwY9mxL3dXVSMQrk4lxaQKx8snqwlBiI9lKMTNErQ63l3jUbxoZ72DSaK5rD8rt28HPZUk/gbVCYe9lutDYQnhJl0E3AH+RAahKi2q41lsE/oOXtypZ8TwUrZEDhb/jZM2IszJm5e6IQlXjj0W26VrTUrwoknmHbn7ffT3RUzpMwGeNVdxRGYql/hiQt7EgvOrF6UjmowbxnP5kiNDXtWUFk2P/0qbMmRV5xc7mw5qayX4=
+  - on:
+      branch: master
