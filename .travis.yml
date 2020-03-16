@@ -10,12 +10,23 @@ before_install:
 - pip install autopep8
 - pip install twine
 
+env:
+  - AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
+
 jobs:
   include:
     - stage: test
+      if: env(AUTHOR_NAME) != 'TravisMooreBot'
       script: bash ./scripts/test.sh
     - stage: fix_style
+      if: branch = master AND env(AUTHOR_NAME) != 'TravisMooreBot'
       script: bash ./scripts/fix_style.sh
+    - stage: deploy_to_pypi
+      if: branch = master AND env(AUTHOR_NAME) != 'TravisMooreBot'
+      script: bash ./scripts/deploy.sh
+    - stage: push_fixed_style
+      if: branch = master AND env(AUTHOR_NAME) != 'TravisMooreBot'
+      script: bash ./scripts/push_style.sh
 #script:
   #- AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
   #- |
