@@ -12,16 +12,15 @@ before_install:
 jobs:
   include:
     - stage: test
-      if: $AUTHOR_NAME != 'TravisMooreBot'
       script: bash ./scripts/test.sh
     - stage: fix_style
-      if: branch = master AND $AUTHOR_NAME != 'TravisMooreBot'
+      if: branch = master 
       script: bash ./scripts/fix_style.sh
     - stage: deploy_to_pypi
-      if: branch = master AND $AUTHOR_NAME != 'TravisMooreBot'
+      if: branch = master
       script: bash ./scripts/deploy.sh
     - stage: push_fixed_style
-      if: branch = master AND $AUTHOR_NAME != 'TravisMooreBot'
+      if: branch = master
       script: bash ./scripts/push_style.sh
 #script:
   #- AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
