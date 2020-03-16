@@ -34,4 +34,4 @@ script:
   - cd "$TRAVIS_BUILD_DIR"
   # now start making the build
   - python setup.py sdist bdist_wheel
-  - twine upload -u "__token__" -p $TRAVIS_PASS dist/*
+  - twine upload -u __token__ -p $TRAVIS_PASS dist/*
