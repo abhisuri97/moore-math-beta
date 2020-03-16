@@ -19,3 +19,7 @@ def subtract(a, b):
     """uhhh"""
     print("hello ")
     return a - b
+
+def divide(a, b):
+    print("dividing")
+    return a/b
