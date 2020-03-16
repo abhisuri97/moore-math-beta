@@ -9,8 +9,8 @@ then
   cd "$TRAVIS_BUILD_DIR"
   git config --global user.email "suriabhinav1997@gmail.com"
   git config --global user.name "TravisMooreBot"
-  git checkout $travis_branch
-    ## push the files to master
+  git checkout $TRAVIS_BRANCH
+  ## push the files to master
   if ( $num_errors_after < $num_errors_before )
   then
     git commit -a -m "pep-8 fix"

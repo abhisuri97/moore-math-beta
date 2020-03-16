@@ -11,11 +11,11 @@ before_install:
 
 jobs:
   include:
-    - stage: test
-      script: bash ./scripts/test.sh
-    - stage: deploy_to_pypi
-      if: branch = master
-      script: bash ./scripts/deploy.sh
+    #- stage: test
+      #script: bash ./scripts/test.sh
+    #- stage: deploy_to_pypi
+      #if: branch = master
+      #script: bash ./scripts/deploy.sh
     - stage: push_fixed_style
       if: branch = master
       script: bash ./scripts/push_style.sh
