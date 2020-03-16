@@ -13,9 +13,3 @@ deploy:
   - script: bash scripts/style.sh
   - on:
       branch: master
-  - provider: pypi
-  - user: __token__
-  - password:
-      secure: kiIUBUazvNXi1b2Xp/oYwx6Cc3Tq5bAZdYi7Up1IWmJTWeQq3o74APDVnN9fi5WNdDiWQlHOIArXZzzL386aashyDBB1m23sn87EEqboY01jpMp6NZ4fvvi8x5ekai0Vq0aJpckRPS1RUNNmBEJUlqGZVhqE7sMcmlqA0RevooBxYnBdhFME4FrSeSLTEShvPxnvWKAahoifpmpXYO2HahA07vjZBqn5x9M8XgcP76SEy2aK4+ispfOpElTtVBtutY+8rFA1F33dlv+zT1L8HNPjVso8Jk9Yhapkn8+0ENkIO2Ep5LXV+VgSq3y2Z5cS+M6OLanfJVUovxLxOpxV1hS5L6RvWZA3HfpHxVj5hh3BWe771wI01I/720nEM6tPBiN54Y2pJYthxbYKjjV2bbnjVQPavxEs1ACnjph1+JwXZhnEel6OVbybFk9/iDwY9mxL3dXVSMQrk4lxaQKx8snqwlBiI9lKMTNErQ63l3jUbxoZ72DSaK5rD8rt28HPZUk/gbVCYe9lutDYQnhJl0E3AH+RAahKi2q41lsE/oOXtypZ8TwUrZEDhb/jZM2IszJm5e6IQlXjj0W26VrTUrwoknmHbn7ffT3RUzpMwGeNVdxRGYql/hiQt7EgvOrF6UjmowbxnP5kiNDXtWUFk2P/0qbMmRV5xc7mw5qayX4=
-  - on:
-      branch: master
