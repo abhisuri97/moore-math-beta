@@ -13,9 +13,9 @@ before_install:
 jobs:
   include:
     - stage: test
-      script: ./scripts/test.sh
+      script: bash ./scripts/test.sh
     - stage: fix_style
-      script: ./scripts/fix_style.sh
+      script: bash ./scripts/fix_style.sh
 #script:
   #- AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
   #- |
