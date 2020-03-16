@@ -1,4 +1,4 @@
-if ($AUTHOR_NAME -ne 'TravisMooreBot');
+if [ "$AUTHOR_NAME" != "TravisBot" ]; 
 then
   # fix style
   num_errors_before=`find . -name \*.py -exec pycodestyle --ignore=e402 {} + | wc -l`
