@@ -18,7 +18,7 @@ script:
       exit 0
     fi
   # run tests
-  - python -m unittest -s moore_math_beta -p 'test_*.py'
+  - python -m unittest discover -s moore_math_beta -p 'test_*.py'
   # fix style
   - num_errors_before=`find . -name \*.py -exec pycodestyle --ignore=E402 {} + | wc -l`
   - echo $num_errors_before
