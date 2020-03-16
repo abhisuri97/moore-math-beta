@@ -1,5 +1,5 @@
 # fix style
-if ($AUTHOR_NAME != 'TravisMooreBot');
+if ($AUTHOR_NAME -ne 'TravisMooreBot');
 then
   find . -name \*.py -exec autopep8 --recursive --aggressive --aggressive --in-place {} +
   echo $num_errors_after
