@@ -13,3 +13,8 @@ def multiply(a, b):
     """DONE with some extra comments"""
     print("hi ")
     return a * b
+
+def subtract(a, b):
+    """uhhh"""
+    print("hello ")
+    return a - b
